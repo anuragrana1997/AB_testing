@@ -1,6 +1,8 @@
 import math
 import numpy as np
 from scipy.stats import ttest_ind, t as t_dist
+from statsmodels.stats.power import NormalIndPower
+from statsmodels.stats.proportion import proportion_effectsize
 import helper_functions
 
 def t_statistics(df, feature):
@@ -29,7 +31,15 @@ def t_statistics(df, feature):
     t_pooled_std = math.sqrt(((t_n1 - 1) * pow(t_control_std, 2) + (t_n2 - 1) * pow(t_treatment_std, 2)) / (t_n1 + t_n2 - 2))
 
     cohen_d = (t_treatment_mean - t_control_mean) / t_pooled_std
-    print("cohen d = ", cohen_d)
+    achieved_power = NormalIndPower().power(
+        effect_size=cohen_d,
+        nobs1=t_n1,
+        ratio=t_n2 / t_n1,
+        alpha=0.05,
+        alternative="two-sided"
+    )
+    print("Cohen's d:", cohen_d)
+    print("Achieved power:", achieved_power)
 
     alpha = 0.05
     df = t_n1 + t_n2 - 2

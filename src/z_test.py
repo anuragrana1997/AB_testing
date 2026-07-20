@@ -4,8 +4,10 @@ import helper_functions
 from scipy.stats import norm
 from statsmodels.stats.proportion import (
     proportions_ztest,
-    confint_proportions_2indep
+    confint_proportions_2indep,
+    proportion_effectsize
 )
+from statsmodels.stats.power import NormalIndPower
 
 def z_statistics(df, feature):
     df_control = df[df["group"] == "control"]
@@ -61,6 +63,19 @@ def z_statistics(df, feature):
     print("Z-score:", z_score)
     print("P-value:", p_value)
     print("95% CI:", (ci_lower, ci_upper))
+
+    h = abs(proportion_effectsize(p1, p2))
+
+    achieved_power = NormalIndPower().power(
+        effect_size=h,
+        nobs1=n1,
+        ratio=n2 / n1,
+        alpha=0.05,
+        alternative="two-sided"
+    )
+
+    print("Cohen's h:", h)
+    print("Achieved power:", achieved_power)
 
     results = {}
     results["p_value"] = p_value

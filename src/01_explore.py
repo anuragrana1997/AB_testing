@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import math
 import numpy as np
-from scipy.stats import norm
+from scipy.stats import norm, ttest_ind, t as t_dist
 from statsmodels.stats.proportion import (
     proportions_ztest,
     confint_proportions_2indep
@@ -22,6 +22,8 @@ plt.xlabel("Group")
 plt.ylabel("Conversion Rate")
 plt.ylim(0, 1)
 plt.savefig("../output/plots/conversion_rate_by_group.png")
+
+''' Z-test '''
 
 df_control = df[df["group"] == "control"]
 df_treatment = df[df["group"] == "treatment"]  
@@ -80,3 +82,44 @@ print("Difference:", p2 - p1)
 print("Z-score:", z_score)
 print("P-value:", p_value)
 print("95% CI:", (ci_low, ci_high))
+
+''' T-test '''
+t_control_session = df[df["group"] == "control"]["session_duration"]
+t_treatment_session = df[df["group"] == "treatment"]["session_duration"]
+
+t_n1 = len(t_control_session)
+t_n2 = len(t_treatment_session)
+
+t_control_mean = sum(t_control_session) / t_n1
+t_treatment_mean = sum(t_treatment_session) / t_n2
+
+t_control_std = t_control_session.std()
+t_treatment_std = t_treatment_session.std()
+
+numerator = t_treatment_mean - t_control_mean
+denominator = math.sqrt(pow(t_treatment_std, 2)/t_n2 + pow(t_control_std, 2)/t_n1)
+
+t = numerator / denominator
+print("-------------------")
+print("t = ",t)
+
+t_stat, p_value = ttest_ind(t_treatment_session, t_control_session, equal_var=False)
+print("verify t = ", t_stat, "verify p = ", p_value)
+
+t_pooled_std = math.sqrt(((n1 - 1) * pow(t_control_std, 2) + (n2 - 1) * pow(t_treatment_std, 2)) / (t_n1 + t_n2 - 2))
+
+cohen_d = (t_treatment_mean - t_control_mean) / t_pooled_std
+print(cohen_d)
+
+alpha = 0.05
+df = t_n1 + t_n2 - 2
+
+critical_t = t_dist.ppf(1 - alpha/2, df)
+print(critical_t)
+
+ci_lower = numerator - critical_t * denominator
+ci_upper = numerator + critical_t * denominator
+print("mean diff = ", numerator)
+print("CI lower and upper = ", ci_lower, ci_upper)
+
+''' fail to reject null hypothersis for session duration '''

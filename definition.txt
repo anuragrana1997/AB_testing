@@ -1,0 +1,241 @@
+## A/B Testing and Hypothesis Testing Glossary
+
+**A/B Test** — An experiment that compares two versions to determine whether one performs better than the other.
+
+**Control Group** — The group that receives the existing or original version.
+
+**Treatment Group** — The group that receives the new or changed version.
+
+**Control Allocation** — The percentage or number of participants assigned to the control group.
+
+**Treatment Allocation** — The percentage or number of participants assigned to the treatment group.
+
+**Allocation Ratio** — The relationship between the sizes of the treatment and control groups.
+
+**50–50 Allocation** — An allocation in which half the participants are assigned to control and half to treatment.
+
+**Unequal Allocation** — An allocation in which the control and treatment groups have different sample sizes.
+
+**Random Assignment** — Assigning participants to groups by chance so that the groups are comparable.
+
+**Conversion** — The desired action completed by a user, such as signing up, purchasing, or enrolling.
+
+**Conversion Rate** — The proportion of users who complete the desired action.
+
+**Baseline Conversion Rate** — The expected or historical conversion rate of the control version.
+
+**Historical Data** — Previously collected data used to estimate values such as the baseline conversion rate.
+
+---
+
+## Statistical Terms
+
+**Population** — The complete group about which you want to make a conclusion.
+
+**Sample** — A smaller group selected or observed from the population.
+
+**Sample Size** — The number of observations or users included in a group or experiment.
+
+**Observation** — One individual data record, such as one user’s experiment result.
+
+**Independent Observations** — Observations that do not influence or duplicate one another.
+
+**Parameter** — A numerical characteristic of an entire population.
+
+**Statistic** — A numerical value calculated from sample data.
+
+**Proportion** — A part of a total expressed as a value between 0 and 1.
+
+**Percentage Point** — The absolute difference between two percentages.
+
+**Relative Improvement** — The improvement measured relative to the original value.
+
+**Absolute Improvement** — The direct numerical difference between the treatment and control rates.
+
+**Variation** — The amount by which observations differ from one another.
+
+**Variance** — A numerical measure of how spread out values are around their mean.
+
+**Noise** — Random variation in data that does not represent the actual effect being studied.
+
+**Uncertainty** — The lack of complete certainty caused by using sample data instead of the entire population.
+
+---
+
+## Hypotheses
+
+**Hypothesis Testing** — A statistical method used to evaluate a claim about a population using sample data.
+
+**Null Hypothesis ((H_0))** — The assumption that there is no real difference or effect.
+
+**Alternative Hypothesis ((H_1) or (H_a))** — The claim that a real difference or effect exists.
+
+**One-Sided Test** — A test that checks for a difference in one specific direction.
+
+**Two-Sided Test** — A test that checks for a difference in either direction.
+
+**Reject the Null Hypothesis** — Conclude that the sample provides sufficient evidence of a real difference.
+
+**Fail to Reject the Null Hypothesis** — Conclude that the sample does not provide sufficient evidence of a real difference.
+
+**Statistical Significance** — A result considered unlikely to have occurred through random chance under the null hypothesis.
+
+**Practical Significance** — Whether the observed difference is large enough to be useful or meaningful in practice.
+
+---
+
+## Errors, Alpha, Beta, and Power
+
+**Significance Level ((\alpha), Alpha)** — The maximum probability of making a Type I error that the researcher is willing to accept.
+
+**Type I Error** — Rejecting the null hypothesis when the null hypothesis is actually true.
+
+**False Positive** — Another name for a Type I error.
+
+**Beta ((\beta))** — The probability of making a Type II error.
+
+**Type II Error** — Failing to reject the null hypothesis when a real effect actually exists.
+
+**False Negative** — Another name for a Type II error.
+
+**Statistical Power** — The probability that a test correctly detects a real effect.
+
+**Desired Power** — The target probability of detecting the minimum effect of interest, commonly 80% or 90%.
+
+**Power Analysis** — A method used to determine the required sample size, detectable effect, or expected power of a test.
+
+---
+
+## Effect Size and Sample Size
+
+**Effect** — The actual difference between the treatment and control populations.
+
+**Effect Size** — A numerical measurement of the magnitude of a difference or relationship.
+
+**Minimum Detectable Effect (MDE)** — The smallest effect that an experiment is designed to reliably detect.
+
+**Required Sample Size** — The number of observations needed to achieve the chosen significance level, power, and MDE.
+
+**Sample Size Calculation** — The process of determining how many observations are required before running an experiment.
+
+**Sample Size per Group** — The required number of observations separately needed in the control and treatment groups.
+
+**Total Sample Size** — The combined number of observations in all experiment groups.
+
+**Sample Size Adjustment** — Increasing the calculated sample size to account for missing, invalid, or unusable observations.
+
+---
+
+## Z-Test Terms
+
+**Z-Test** — A hypothesis test that uses the standard normal distribution to evaluate a sample statistic.
+
+**Two-Proportion Z-Test** — A z-test used to compare proportions, such as conversion rates, from two independent groups.
+
+**Z-Statistic** — A standardized value showing how far the observed difference is from the value expected under the null hypothesis.
+
+**Z-Score** — The number of standard errors that a value lies above or below an expected value.
+
+**Critical Value** — The z-score boundary beyond which the null hypothesis is rejected.
+
+**Standard Normal Distribution** — A normal distribution with a mean of 0 and a standard deviation of 1.
+
+**(z_{1-\alpha/2})** — The critical z-value used for the significance level in a two-sided test.
+
+**(z_{1-\alpha})** — The critical z-value used for the significance level in a one-sided test.
+
+**(z_{1-\beta})** — The z-value associated with the desired statistical power.
+
+---
+
+## Probability and Test Results
+
+**P-Value** — The probability of obtaining a result at least as extreme as the observed result, assuming the null hypothesis is true.
+
+**Tail** — An extreme end of a probability distribution.
+
+**Tail Area** — The probability contained beyond a particular test-statistic value.
+
+**Rejection Region** — The range of test-statistic values for which the null hypothesis is rejected.
+
+**Acceptance Region** — An informal term for the range where the null hypothesis is not rejected.
+
+**Confidence Level** — The percentage associated with a confidence procedure, usually calculated as (1-\alpha).
+
+**95% Confidence Level** — A confidence level corresponding to (\alpha=0.05).
+
+---
+
+## Proportion-Test Calculations
+
+**Control Sample Size ((n_C))** — The number of users in the control group.
+
+**Treatment Sample Size ((n_T))** — The number of users in the treatment group.
+
+**Control Conversions ((x_C))** — The number of converted users in the control group.
+
+**Treatment Conversions ((x_T))** — The number of converted users in the treatment group.
+
+**Control Conversion Rate ((\hat p_C))** — The observed proportion of control users who converted.
+
+**Treatment Conversion Rate ((\hat p_T))** — The observed proportion of treatment users who converted.
+
+**Expected Control Rate ((p_C))** — The assumed population conversion rate for the control group.
+
+**Expected Treatment Rate ((p_T))** — The treatment conversion rate expected under the chosen MDE.
+
+**Average Proportion ((\bar p))** — The average of the expected control and treatment proportions used in sample-size calculations.
+
+**Pooled Proportion ((\hat p))** — A combined conversion rate calculated from both groups under the assumption that the null hypothesis is true.
+
+**Standard Error (SE)** — The estimated amount by which a sample statistic would vary across repeated samples.
+
+**Difference in Proportions** — The treatment conversion rate minus the control conversion rate.
+
+---
+
+## Data Quality Terms
+
+**Missing Value** — A data field for which no value was recorded.
+
+**Duplicate Observation** — The same user or event appearing more than once when it should appear only once.
+
+**Invalid Observation** — A record that does not satisfy the experiment’s data requirements.
+
+**Tracking Error** — A technical problem that incorrectly records or fails to record user activity.
+
+**Unusable Data** — Observations that must be excluded because they are missing, duplicated, corrupted, or invalid.
+
+**Sample Ratio Mismatch (SRM)** — A statistically unexpected difference between the planned allocation and the observed group sizes.
+
+**Contamination** — A situation in which participants are exposed to both the control and treatment conditions.
+
+**Group Switching** — A situation in which a participant moves from one experiment group to another.
+
+---
+
+## Python and Statsmodels Terms
+
+**Python** — A programming language commonly used for statistical analysis and data science.
+
+**Statsmodels** — A Python library that provides statistical tests, models, and power-analysis methods.
+
+**`NormalIndPower`** — A Statsmodels class used for power and sample-size calculations involving two independent groups.
+
+**`proportion_effectsize`** — A Statsmodels function that converts two proportions into a standardized effect size.
+
+**`solve_power`** — A method that calculates power, sample size, effect size, significance level, or allocation ratio when the other values are provided.
+
+**`effect_size`** — The standardized magnitude of the difference passed into a power-analysis method.
+
+**`alpha`** — The significance-level value supplied to the statistical method.
+
+**`power`** — The desired probability of detecting the specified effect.
+
+**`ratio`** — The treatment sample size divided by the control sample size.
+
+**`alternative`** — The direction of the alternative hypothesis, such as one-sided or two-sided.
+
+**`two-sided`** — A test setting that checks whether the treatment is either higher or lower than the control.
+
+**`math.ceil()`** — A Python function that rounds a number upward to the nearest integer.
